@@ -15,6 +15,12 @@ def pm(m):
             print(c, end="")
         print("")
 
+def stoia(pstr):
+    return list(map(lambda x: int(x), pstr.split(",")))
+
+def iatos(p):
+    return ",".join(map(lambda x: str(x), p))
+
 ls = []
 with open(f'{source_dir}/in.txt') as fp:
     for line in fp:
