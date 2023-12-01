@@ -27,7 +27,17 @@ with open(f'{source_dir}/in.txt') as fp:
         l = line.strip()
         ls.append(l)
 
-for l in line:
+sum = 0
+for l in ls:
     if l == "":
         continue
+    f = re.search("\d", l)
+    print(l)
+    print(f)
+    s = re.search("\d", l[::-1])
+    print(l[::-1])
+    print(s)
+    sum = sum + int(f[0]+s[0])
 
+
+print(sum)
