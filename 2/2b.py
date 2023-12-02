@@ -27,7 +27,27 @@ with open(f'{source_dir}/in.txt') as fp:
         l = line.strip()
         ls.append(l)
 
+count = 0
+
 for l in ls:
     if l == "":
         continue
 
+    maxes = {"r": 0, "g": 0, "b": 0}
+
+    result = re.search("Game (\d+):(.*)$", l)
+    id = int(result[1])
+
+    cubes = re.split("[;,]", result[2])
+    for c in cubes:
+        rs = re.search("(\d+) (\w)", c)
+        n = int(rs[1])
+        if n > maxes[rs[2]]:
+            maxes[rs[2]] = n
+
+    count += maxes["r"] * maxes["b"] * maxes["g"]
+
+print(count)
+
+
+            
