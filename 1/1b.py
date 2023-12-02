@@ -27,55 +27,43 @@ with open(f'{source_dir}/in.txt') as fp:
         l = line.strip()
         ls.append(l)
 
+def wordtoi(word):
+    if word == "one":
+        return 1
+    elif word == "two":
+        return 2
+    elif word == "three":
+        return 3
+    elif word == "four":
+        return 4
+    elif word == "five":
+        return 5
+    elif word == "six":
+        return 6
+    elif word == "seven":
+        return 7
+    elif word == "eight":
+        return 8
+    elif word == "nine":
+        return 9
+    else:
+        return int(word)
+
+
 sum = 0
 for l in ls:
     if l == "":
         continue
 
-    f = re.search("\d|one|two|three|four|five|six|seven|eight|nine", l)
-    if f[0] == "one":
-        f = "1"
-    elif f[0] == "two":
-        f = "2"
-    elif f[0] == "three":
-        f = "3"
-    elif f[0] == "four":
-        f = "4"
-    elif f[0] == "five":
-        f = "5"
-    elif f[0] == "six":
-        f = "6"
-    elif f[0] == "seven":
-        f = "7"
-    elif f[0] == "eight":
-        f = "8"
-    elif f[0] == "nine":
-        f = "9"
+    ms = re.search("(\d|one|two|three|four|five|six|seven|eight|nine).*(\d|one|two|three|four|five|six|seven|eight|nine)", l)
+    if ms:
+        f = wordtoi(ms[1])
+        s = wordtoi(ms[2])
+        sum = sum + int(str(f) + str(s))
     else:
-        f = f[0]
-    
-    s = re.search("\d|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin", l[::-1])
-    if s[0] == "eno":
-        s = "1"
-    elif s[0] == "owt":
-        s = "2"
-    elif s[0] == "eerht":
-        s = "3"
-    elif s[0] == "ruof":
-        s = "4"
-    elif s[0] == "evif":
-        s = "5"
-    elif s[0] == "xis":
-        s = "6"
-    elif s[0] == "neves":
-        s = "7"
-    elif s[0] == "thgie":
-        s = "8"
-    elif s[0] == "enin":
-        s = "9"
-    else:
-        s = s[0]
-    sum = sum + int(f+s)
+        ms = re.search("(\d|one|two|three|four|five|six|seven|eight|nine)", l)
+        f = wordtoi(ms[0])
+        sum = sum + int(str(f) + str(f))
 
 
 print(sum)
