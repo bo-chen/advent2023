@@ -23,7 +23,7 @@ def iatos(p):
     return ",".join(map(lambda x: str(x), p))
 
 ls = []
-with open(f'{source_dir}/in.txt') as fp:
+with open(f'{source_dir}/s.txt') as fp:
     for line in fp:
         lstripped = line.strip()
 
