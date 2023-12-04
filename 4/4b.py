@@ -30,7 +30,6 @@ with open(f'{source_dir}/in.txt') as fp:
 h = len(ls)
 copies = [1] * h
 
-sum = 0
 for i, l in enumerate(ls):
     if l == "":
         continue
@@ -50,9 +49,6 @@ for i, l in enumerate(ls):
         for j in range(i+1, i+1+ms):
             if j < h:
                 copies[j] += copies[i]
-    sum += copies[i]
 
-print(sum)
-
-
-
+s = sum(copies)
+print(s)
