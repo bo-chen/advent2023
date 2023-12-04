@@ -26,9 +26,9 @@ ls = []
 with open(f'{source_dir}/in.txt') as fp:
     for line in fp:
         lstripped = line.strip()
-        ls.append(lstripped)
+
+        if lstripped != "":
+            ls.append(lstripped)
 
 for l in ls:
-    if l == "":
-        continue
-
+    l
