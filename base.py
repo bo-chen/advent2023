@@ -3,6 +3,7 @@ import numpy as np
 import os
 import re
 import sys
+from functools import reduce
 from pathlib import Path
 
 source_path = Path(__file__).resolve()
