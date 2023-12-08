@@ -50,23 +50,11 @@ def isend(cns):
         
     return True
 
-print(cns)
 zdone = []
 zphases = []
 for _ in cns:
     zphases.append({})
     zdone.append(False)
-
-# Actual cycles
-[{'GLZ': [18113, 36226]}, 
- {'MFZ': [22411, 44822]}, 
- {'JPZ': [21797, 43594]}, 
- {'VSZ': [14429, 28858]}, 
- {'ZZZ': [16271, 32542]}, 
- {'BJZ': [18727, 37454]}]
-
-# actual answer after factorization
-print(59*73*71*47*53*61*307)
 
 i = 0
 l = len(ins)
@@ -81,11 +69,12 @@ while not isend(cns):
                 print(zphases)
                 if all(zdone):
                     print("all cycles done")
+                    cycles = []
                     for d in zphases:
                         for k in d:
-                            print(k)
-                            print(d[k])
-                            print(d[k][1] - d[k][0])
+                            cycles.append(d[k][1] - d[k][0])
+                    print(math.lcm(*cycles))
+                    exit(0)
             else:
                 zphases[j][n] = [i]
 
