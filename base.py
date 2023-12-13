@@ -3,7 +3,8 @@ import numpy as np
 import os
 import re
 import sys
-from functools import reduce
+import copy
+from functools import *
 from pathlib import Path
 
 source_path = Path(__file__).resolve()
